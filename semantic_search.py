@@ -9,7 +9,7 @@ def semantic_search(query, products, top_k=3):
     model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
     query_embedding = model.encode([query])[0]
 
-    result_data_structure = TopRanker(5)
+    result_data_structure = TopRanker(top_k)
 
     for row in products:
         phone_id, name, brand, specifications, price, embedding_data = row
